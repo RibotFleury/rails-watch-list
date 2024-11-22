@@ -1,0 +1,25 @@
+<h1>Create a New List</h1>
+
+<%= form_with model: @list, local: true do |form| %>
+  <% if @list.errors.any? %>
+    <div>
+      <h2>There were errors with your form:</h2>
+      <ul>
+        <% @list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit "Create List" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to lists', lists_path %>
